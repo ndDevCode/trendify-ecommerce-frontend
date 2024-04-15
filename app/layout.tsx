@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
@@ -26,9 +27,11 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <main className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
