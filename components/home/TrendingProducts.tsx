@@ -4,8 +4,22 @@ import React from "react";
 import { Tab } from "@headlessui/react";
 import { classNames } from "@/lib/utils";
 
+import ProductCard from "@/components/common/ProductCard";
+import productImg from "@/public/images/products/product-1.png";
+
 export default function TrendingProducts() {
   const categories = ["Women", "Men", "Kids"];
+  const products = [
+    {
+      id: 1,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+  ];
 
   return (
     <div>
@@ -16,6 +30,7 @@ export default function TrendingProducts() {
         <Tab.List className={"flex space-x-1 p-1 w-fit"}>
           {categories.map((category) => (
             <Tab
+              content={`${category}`}
               key={category}
               className={({ selected }) =>
                 classNames(
@@ -31,10 +46,16 @@ export default function TrendingProducts() {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className={"mt-5 ms-1"}>
-          <Tab.Panel>Content 1</Tab.Panel>
-          <Tab.Panel>Content 2</Tab.Panel>
-          <Tab.Panel>Content 3</Tab.Panel>
+
+        <Tab.Panels className={"mt-8 ms-1"}>
+          <Tab.Panel content="Women" className={"flex justify-center gap-3"}>
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+            <ProductCard product={products[0]} />
+          </Tab.Panel>
+          <Tab.Panel content="Men">Content 2</Tab.Panel>
+          <Tab.Panel content="Kids">Content 3</Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
     </div>

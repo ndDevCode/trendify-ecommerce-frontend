@@ -11,7 +11,7 @@ export default function Categories({ data }: any) {
         {data?.map((category: any, index: any) => (
           <div key={index} className="flex flex-col gap-2">
             <Image
-              className="min-w-[80px]"
+              className="min-w-[80px] hover:rotate-6"
               src={category.img}
               alt="category image"
               width={300}
