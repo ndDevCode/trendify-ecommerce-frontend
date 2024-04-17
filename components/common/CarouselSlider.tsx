@@ -9,7 +9,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export function CarouselSlider({ products }: any) {
+interface Props {
+  component: React.ElementType;
+  items: any;
+}
+
+export function CarouselSlider(props: Props) {
   return (
     <Carousel
       opts={{
@@ -18,12 +23,12 @@ export function CarouselSlider({ products }: any) {
       className="w-full"
     >
       <CarouselContent>
-        {products.map((product: any) => (
+        {props.items.map((item: any) => (
           <CarouselItem
-            key={product.id}
+            key={item.id}
             className="basis-full md:basis-1/2 min-[1140px]:basis-1/3 flex items-center justify-center p-0"
           >
-            <ProductCard product={product} />
+            <props.component prop={item} />
           </CarouselItem>
         ))}
       </CarouselContent>

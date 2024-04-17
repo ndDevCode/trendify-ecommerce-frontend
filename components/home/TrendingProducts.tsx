@@ -5,7 +5,9 @@ import { Tab } from "@headlessui/react";
 import { classNames } from "@/lib/utils";
 
 import { CarouselSlider } from "../common/CarouselSlider";
+
 import productImg from "@/public/images/products/product-1.png";
+import ProductCard from "../common/ProductCard";
 
 export default function TrendingProducts() {
   const categories = ["Women", "Men", "Kids"];
@@ -85,16 +87,26 @@ export default function TrendingProducts() {
 
         <Tab.Panels className={"mt-8 ms-1"}>
           <Tab.Panel content="Women" className={"flex justify-center gap-3"}>
-            <CarouselSlider products={products} />
+            <CarouselSlider component={ProductCard} items={products} />
           </Tab.Panel>
           <Tab.Panel content="Men">
-            <CarouselSlider products={products} />
+            <CarouselSlider component={ProductCard} items={products} />
           </Tab.Panel>
           <Tab.Panel content="Kids">
-            <CarouselSlider products={products} />
+            <CarouselSlider component={ProductCard} items={products} />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
+      <div className="flex justify-center">
+        <button
+          className="inline-flex h-6 animate-shimmer items-center justify-center rounded-xl 
+        bg-[linear-gradient(110deg,#4b6cb7,45%,#182848,55%,#4b6cb7)] bg-[length:200%_100%] px-4 font-medium text-white
+        transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50
+        hover:text-slate-100 hover:bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)]"
+        >
+          View All
+        </button>
+      </div>
     </div>
   );
 }
