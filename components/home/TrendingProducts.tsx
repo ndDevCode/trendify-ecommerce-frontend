@@ -4,7 +4,7 @@ import React from "react";
 import { Tab } from "@headlessui/react";
 import { classNames } from "@/lib/utils";
 
-import ProductCard from "@/components/common/ProductCard";
+import { CarouselSlider } from "../common/CarouselSlider";
 import productImg from "@/public/images/products/product-1.png";
 
 export default function TrendingProducts() {
@@ -12,6 +12,42 @@ export default function TrendingProducts() {
   const products = [
     {
       id: 1,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 2,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 3,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 4,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 5,
       name: "Product 1",
       color: "Black",
       href: "#",
@@ -49,13 +85,14 @@ export default function TrendingProducts() {
 
         <Tab.Panels className={"mt-8 ms-1"}>
           <Tab.Panel content="Women" className={"flex justify-center gap-3"}>
-            <ProductCard product={products[0]} />
-            <ProductCard product={products[0]} />
-            <ProductCard product={products[0]} />
-            <ProductCard product={products[0]} />
+            <CarouselSlider products={products} />
           </Tab.Panel>
-          <Tab.Panel content="Men">Content 2</Tab.Panel>
-          <Tab.Panel content="Kids">Content 3</Tab.Panel>
+          <Tab.Panel content="Men">
+            <CarouselSlider products={products} />
+          </Tab.Panel>
+          <Tab.Panel content="Kids">
+            <CarouselSlider products={products} />
+          </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
     </div>

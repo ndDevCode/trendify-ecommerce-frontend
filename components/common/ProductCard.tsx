@@ -11,7 +11,7 @@ import {
 
 export default function ProductCard({ product }: any) {
   return (
-    <Card className="w-[280px] h-[480px] border-none shadow-none">
+    <Card className="w-[280px] h-[480px] border-none shadow-none scale-90 sm:scale-100 hover:scale-95 duration-700">
       <CardContent className="w-[280px] h-[400px] p-0 overflow-hidden rounded-xl lg:aspect-none group-hover:opacity-75">
         <Image
           src={product.imageSrc}

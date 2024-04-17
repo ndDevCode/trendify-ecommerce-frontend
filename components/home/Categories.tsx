@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { classNames } from "@/lib/utils";
 
 export default function Categories({ data }: any) {
   return (
@@ -8,10 +9,13 @@ export default function Categories({ data }: any) {
         Categories
       </h1>
       <div className="flex flex-1 gap-2 overflow-scroll no-scrollbar">
-        {data?.map((category: any, index: any) => (
+        {data?.map((category: any, index: number) => (
           <div key={index} className="flex flex-col gap-2">
             <Image
-              className="min-w-[80px] hover:rotate-6"
+              className={
+                "min-w-[80px] duration-700 " +
+                `${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`
+              }
               src={category.img}
               alt="category image"
               width={300}
