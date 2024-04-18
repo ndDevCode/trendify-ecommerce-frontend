@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import { DancingScript } from "@/lib/fonts";
+import { Montserrat } from "@/lib/fonts";
+
 import HeroImage from "@/public/images/hero_image.png";
 
 function Hero() {
@@ -16,7 +19,12 @@ function Hero() {
         ></Image>
       </div>
       <div className="flex flex-col items-center justify-center gap-6 ms-4 my-5">
-        <h1 className="xl:text-[90px] md:text-7xl text-5xl md:leading-[7rem] text-center">
+        <h1
+          className={cn(
+            Montserrat.className,
+            "xl:text-[90px] md:text-7xl text-5xl md:leading-[7rem] text-center"
+          )}
+        >
           There is clothing <br />
           for everyone
         </h1>

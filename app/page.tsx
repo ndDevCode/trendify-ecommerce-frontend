@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Categories from "@/components/home/Categories";
 import TrendingProducts from "@/components/home/TrendingProducts";
 import Hero from "@/components/home/Hero";
