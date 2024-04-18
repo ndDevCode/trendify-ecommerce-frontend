@@ -6,17 +6,19 @@ import { classNames } from "@/lib/utils";
 import { Montserrat } from "@/lib/fonts";
 
 import { Tab } from "@headlessui/react";
-
-import { CarouselSlider } from "../common/CarouselSlider";
-
-import productImg1 from "@/public/images/products/product-1.png";
-import productImg2 from "@/public/images/products/product-10.png";
-import productImg3 from "@/public/images/products/product-11.png";
-import productImg4 from "@/public/images/products/product-12.png";
-
 import ProductCard from "../common/ProductCard";
 
-export default function TrendingProducts() {
+import productImg1 from "@/public/images/products/product-1.png";
+import productImg2 from "@/public/images/products/product-2.png";
+import productImg4 from "@/public/images/products/product-4.png";
+import productImg5 from "@/public/images/products/product-5.png";
+import productImg6 from "@/public/images/products/product-6.png";
+import productImg7 from "@/public/images/products/product-7.png";
+import productImg8 from "@/public/images/products/product-8.png";
+import productImg9 from "@/public/images/products/product-9.png";
+import productImg3 from "@/public/images/products/product-3.png";
+
+export default function NewProducts() {
   const categories = ["Women", "Men", "Kids"];
   const products = [
     {
@@ -60,7 +62,43 @@ export default function TrendingProducts() {
       name: "Product 1",
       color: "Black",
       href: "#",
-      imageSrc: productImg1,
+      imageSrc: productImg5,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 6,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg6,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 7,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg7,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 8,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg8,
+      imageAlt: "Front of men&apos;s Basic Tee in black.",
+      price: "$35",
+    },
+    {
+      id: 9,
+      name: "Product 1",
+      color: "Black",
+      href: "#",
+      imageSrc: productImg9,
       imageAlt: "Front of men&apos;s Basic Tee in black.",
       price: "$35",
     },
@@ -74,7 +112,7 @@ export default function TrendingProducts() {
           "text-xl sm:text-3xl mb-8 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
         )}
       >
-        Trending Products
+        New Arrivals
       </h1>
       <Tab.Group>
         <Tab.List className={"flex space-x-1 p-1 w-fit"}>
@@ -98,26 +136,58 @@ export default function TrendingProducts() {
         </Tab.List>
 
         <Tab.Panels className={"mt-8 ms-1"}>
-          <Tab.Panel content="Women">
-            <CarouselSlider
-              component={ProductCard}
-              items={products}
-              classNames="basis-full md:basis-1/2 min-[1140px]:basis-1/3 "
-            />
+          <Tab.Panel
+            content="Women"
+            className={
+              "grid grid-cols-1 md:grid-cols-2 min-[1080px]:grid-cols-3"
+            }
+          >
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="flex items-center justify-center"
+              >
+                <ProductCard
+                  key={product.id}
+                  prop={product}
+                  className="self-center"
+                />
+              </div>
+            ))}
           </Tab.Panel>
-          <Tab.Panel content="Men">
-            <CarouselSlider
-              component={ProductCard}
-              items={products}
-              classNames="basis-full md:basis-1/2 min-[1140px]:basis-1/3"
-            />
+          <Tab.Panel
+            content="Men"
+            className={
+              "grid grid-cols-1 md:grid-cols-2 min-[1080px]:grid-cols-3"
+            }
+          >
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="flex items-center justify-center"
+              >
+                <ProductCard
+                  key={product.id}
+                  prop={product}
+                  className="self-center"
+                />
+              </div>
+            ))}
           </Tab.Panel>
-          <Tab.Panel content="Kids">
-            <CarouselSlider
-              component={ProductCard}
-              items={products}
-              classNames="basis-full md:basis-1/2 min-[1140px]:basis-1/3"
-            />
+          <Tab.Panel
+            content="Kids"
+            className={
+              "grid grid-cols-1 md:grid-cols-2 min-[1080px]:grid-cols-3"
+            }
+          >
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="flex items-center justify-center"
+              >
+                <ProductCard key={product.id} prop={product} />
+              </div>
+            ))}
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

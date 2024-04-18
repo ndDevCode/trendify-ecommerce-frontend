@@ -9,6 +9,7 @@ import category3 from "@/public/images/categories/Ellipse 8.png";
 import category4 from "@/public/images/categories/Ellipse 9.png";
 import category5 from "@/public/images/categories/Ellipse 10.png";
 import category6 from "@/public/images/categories/Group 8.png";
+import NewProducts from "@/components/home/NewProducts";
 
 const categories = [
   { img: category1, title: "Spring & Summer 2024" },
@@ -37,9 +38,14 @@ export default function Home() {
         <TrendingProducts />
       </div>
 
-      {/* -------------------- Collections ----------------------- */}
+      {/* -------------------- Collections ------------------ */}
       <div className="mb-16 px-14 font-bold group">
         <Collections />
+      </div>
+
+      {/* --------------------- New Products ---------------- */}
+      <div className="mb-16 px-14 font-bold">
+        <NewProducts />
       </div>
     </>
   );
