@@ -87,13 +87,25 @@ export default function TrendingProducts() {
 
         <Tab.Panels className={"mt-8 ms-1"}>
           <Tab.Panel content="Women" className={"flex justify-center gap-3"}>
-            <CarouselSlider component={ProductCard} items={products} />
+            <CarouselSlider
+              component={ProductCard}
+              items={products}
+              classNames="basis-full md:basis-1/2 min-[1140px]:basis-1/3 "
+            />
           </Tab.Panel>
           <Tab.Panel content="Men">
-            <CarouselSlider component={ProductCard} items={products} />
+            <CarouselSlider
+              component={ProductCard}
+              items={products}
+              classNames="basis-full md:basis-1/2 min-[1140px]:basis-1/3"
+            />
           </Tab.Panel>
           <Tab.Panel content="Kids">
-            <CarouselSlider component={ProductCard} items={products} />
+            <CarouselSlider
+              component={ProductCard}
+              items={products}
+              classNames="basis-full md:basis-1/2 min-[1140px]:basis-1/3"
+            />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

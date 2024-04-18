@@ -10,12 +10,8 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import localFont from "next/font/local";
+import { DancingScript } from "@/lib/fonts";
 import Logo from "@/public/logo.png";
-
-const font = localFont({
-  src: "../../public/fonts/DancingScript-VariableFont_wght.ttf",
-});
 
 const navigation = [
   { name: "WOMEN", href: "#", current: true },
@@ -69,7 +65,7 @@ export default function Navbar() {
                   href={"/"}
                   className={classNames(
                     "ms-2 text-2xl font-bold italic",
-                    font.className
+                    DancingScript.className
                   )}
                 >
                   Trendify

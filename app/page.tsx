@@ -1,6 +1,7 @@
 import Categories from "@/components/home/Categories";
 import TrendingProducts from "@/components/home/TrendingProducts";
 import Hero from "@/components/home/Hero";
+import Collections from "@/components/home/Collections";
 
 import category1 from "@/public/images/categories/Ellipse 6.png";
 import category2 from "@/public/images/categories/Ellipse 7.png";
@@ -21,19 +22,24 @@ const categories = [
 export default function Home() {
   return (
     <>
-      {/* ------------------Hero Section----------------------  */}
+      {/* ----------------- Hero Section -------------------- */}
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-32 mb-16">
         <Hero />
       </div>
 
-      {/* --------------------Categories----------------------- */}
+      {/* ------------------- Categories -------------------- */}
       <div className="mb-16 px-14 font-bold">
         <Categories data={categories} />
       </div>
 
-      {/* -------------------- Trending Products ----------------------- */}
-      <div className="mb-32 px-14 font-bold">
+      {/* -------------------- Trending Products ------------ */}
+      <div className="mb-16 px-14 font-bold">
         <TrendingProducts />
+      </div>
+
+      {/* -------------------- Collections ----------------------- */}
+      <div className="mb-16 px-14 font-bold">
+        <Collections />
       </div>
     </>
   );

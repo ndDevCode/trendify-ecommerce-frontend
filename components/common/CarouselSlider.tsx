@@ -12,6 +12,7 @@ import {
 interface Props {
   component: React.ElementType;
   items: any;
+  classNames: string;
 }
 
 export function CarouselSlider(props: Props) {
@@ -20,13 +21,15 @@ export function CarouselSlider(props: Props) {
       opts={{
         align: "start",
       }}
-      className="w-full"
+      className="w-full group"
     >
       <CarouselContent>
         {props.items.map((item: any) => (
           <CarouselItem
             key={item.id}
-            className="basis-full md:basis-1/2 min-[1140px]:basis-1/3 flex items-center justify-center p-0"
+            className={
+              "flex items-center justify-center p-0 " + `${props.classNames}`
+            }
           >
             <props.component prop={item} />
           </CarouselItem>

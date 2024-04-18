@@ -1,11 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import localFont from "next/font/local";
+import { DancingScript } from "@/lib/fonts";
 import HeroImage from "@/public/images/hero_image.png";
-
-const font = localFont({
-  src: "../../public/fonts/DancingScript-VariableFont_wght.ttf",
-});
 
 function Hero() {
   return (
@@ -24,7 +20,9 @@ function Hero() {
           There is clothing <br />
           for everyone
         </h1>
-        <p className={`text-4xl font-thin ${font.className} text-center`}>
+        <p
+          className={`text-4xl font-thin ${DancingScript.className} text-center`}
+        >
           Trendify is the best place to buy clothes
         </p>
         <div className="flex gap-5">
