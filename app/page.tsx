@@ -2,6 +2,7 @@ import Categories from "@/components/home/Categories";
 import TrendingProducts from "@/components/home/TrendingProducts";
 import Hero from "@/components/home/Hero";
 import Collections from "@/components/home/Collections";
+import CollectionBanner from "@/components/common/CollectionBanner";
 
 import category1 from "@/public/images/categories/Ellipse 6.png";
 import category2 from "@/public/images/categories/Ellipse 7.png";
@@ -47,6 +48,14 @@ export default function Home() {
       <div className="mb-16 px-14 font-bold">
         <NewProducts />
       </div>
+
+      {/* ------------------- Collection Banner ------------- */}
+      <div className="mb-16 px-14 font-bold">
+        <CollectionBanner />
+      </div>
+
+      {/* ------------------- Collection Banner ------------- */}
+      <div className="mb-16 px-14 font-bold"></div>
     </>
   );
 }
