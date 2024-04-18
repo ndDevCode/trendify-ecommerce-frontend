@@ -11,6 +11,7 @@ import category4 from "@/public/images/categories/Ellipse 9.png";
 import category5 from "@/public/images/categories/Ellipse 10.png";
 import category6 from "@/public/images/categories/Group 8.png";
 import NewProducts from "@/components/home/NewProducts";
+import SocialMediaClicks from "@/components/home/SocialMediaClicks";
 
 const categories = [
   { img: category1, title: "Spring & Summer 2024" },
@@ -55,7 +56,9 @@ export default function Home() {
       </div>
 
       {/* ------------------- Collection Banner ------------- */}
-      <div className="mb-16 px-14 font-bold"></div>
+      <div className="mb-16 px-14 font-bold">
+        <SocialMediaClicks />
+      </div>
     </>
   );
 }

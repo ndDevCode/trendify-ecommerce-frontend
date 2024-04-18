@@ -42,7 +42,6 @@ export const GoogleGeminiEffect = ({
           src={image}
           alt="Collection Banner"
           width={190}
-          height={350}
         ></Image>
       ) : (
         ""
