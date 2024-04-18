@@ -1,4 +1,6 @@
 import React from "react";
+import { cn } from "@/lib/utils";
+import { Montserrat } from "@/lib/fonts";
 import { CarouselSlider } from "../common/CarouselSlider";
 import CollectionCard from "../common/CollectionCard";
 
@@ -27,7 +29,12 @@ const collections = [
 function Collections() {
   return (
     <>
-      <h1 className="text-xl sm:text-3xl mb-8 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent">
+      <h1
+        className={cn(
+          Montserrat.className,
+          "text-xl sm:text-3xl mb-8 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
+        )}
+      >
         Collections
       </h1>
       <div>

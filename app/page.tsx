@@ -33,12 +33,12 @@ export default function Home() {
       </div>
 
       {/* -------------------- Trending Products ------------ */}
-      <div className="mb-16 px-14 font-bold">
+      <div className="mb-16 px-14 font-bold group">
         <TrendingProducts />
       </div>
 
       {/* -------------------- Collections ----------------------- */}
-      <div className="mb-16 px-14 font-bold">
+      <div className="mb-16 px-14 font-bold group">
         <Collections />
       </div>
     </>

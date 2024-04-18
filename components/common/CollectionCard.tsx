@@ -11,7 +11,7 @@ export default function CollectionCard({ prop }: any) {
         className="w-[330px] h-[330px] border-none shadow-none scale-75 hover:scale-[.80] sm:scale-90 sm:hover:scale-[.85] 
       duration-700 lg:scale-100 lg:hover:scale-95"
       >
-        <CardContent className="p-0 overflow-hidden rounded-xl lg:aspect-none group-hover:opacity-75">
+        <CardContent className="p-0 overflow-hidden rounded-xl lg:aspect-none">
           <Image
             src={prop.imageSrc}
             alt={prop.imageAlt}
@@ -34,6 +34,3 @@ export default function CollectionCard({ prop }: any) {
     </>
   );
 }
-
-// background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); // linear-gradient(110deg,#e3ffe7,45%,#d9e7ff,55%,#e3ffe7)
-// background-image: linear-gradient(to right, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%);

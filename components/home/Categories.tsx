@@ -1,11 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { classNames } from "@/lib/utils";
+import { Montserrat } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 export default function Categories({ data }: any) {
   return (
     <>
-      <h1 className="text-xl sm:text-3xl mb-12 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent">
+      <h1
+        className={cn(
+          Montserrat.className,
+          "text-xl sm:text-3xl mb-12 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
+        )}
+      >
         Categories
       </h1>
       <div className="flex flex-1 gap-2 overflow-scroll no-scrollbar">

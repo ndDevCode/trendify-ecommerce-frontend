@@ -5,7 +5,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 export default function ProductCard({ prop }: any) {
   return (
     <Card className="w-[280px] h-[480px] border-none shadow-none scale-90 sm:scale-100 hover:scale-95 duration-700">
-      <CardContent className="w-[280px] h-[400px] p-0 overflow-hidden rounded-xl lg:aspect-none group-hover:opacity-75">
+      <CardContent className="w-[280px] h-[400px] p-0 overflow-hidden rounded-xl lg:aspect-none">
         <Image
           src={prop.imageSrc}
           alt={prop.imageAlt}

@@ -196,7 +196,7 @@ export default function Footer() {
         </div>
         <div>
           <p className="text-sm text-gray-400">
-            © 2022 Trendify. All rights reserved.
+            © 2024 Trendify. All rights reserved.
           </p>
         </div>
         <div>

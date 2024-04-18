@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
-import { Tab } from "@headlessui/react";
+import { cn } from "@/lib/utils";
 import { classNames } from "@/lib/utils";
+import { Montserrat } from "@/lib/fonts";
+
+import { Tab } from "@headlessui/react";
 
 import { CarouselSlider } from "../common/CarouselSlider";
 
@@ -61,7 +64,12 @@ export default function TrendingProducts() {
 
   return (
     <div>
-      <h1 className="text-xl sm:text-3xl mb-8 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent">
+      <h1
+        className={cn(
+          Montserrat.className,
+          "text-xl sm:text-3xl mb-8 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
+        )}
+      >
         Trending Products
       </h1>
       <Tab.Group>
@@ -86,7 +94,7 @@ export default function TrendingProducts() {
         </Tab.List>
 
         <Tab.Panels className={"mt-8 ms-1"}>
-          <Tab.Panel content="Women" className={"flex justify-center gap-3"}>
+          <Tab.Panel content="Women">
             <CarouselSlider
               component={ProductCard}
               items={products}
