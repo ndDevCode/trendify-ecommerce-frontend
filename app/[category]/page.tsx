@@ -3,6 +3,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "@/lib/fonts";
 
+import ProductPagination from "@/components/product-page/ProductPagination";
 import ProductCard from "@/components/common/ProductCard";
 
 import category1 from "@/public/images/categories/Ellipse 6.png";
@@ -201,7 +202,9 @@ function ProductPage({ params }: { params: { category: string } }) {
             ))}
           </div>
           {/* ------------------------ Pagination ----------------------- */}
-          <div></div>
+          <div>
+            <ProductPagination />
+          </div>
         </div>
       </div>
     </>
