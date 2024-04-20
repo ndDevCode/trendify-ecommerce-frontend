@@ -6,7 +6,7 @@ import { classNames } from "@/lib/utils";
 import { Montserrat } from "@/lib/fonts";
 
 import { Tab } from "@headlessui/react";
-import ProductCard from "../common/ProductCard";
+import ProductCard from "@/components/common/ProductCard";
 
 import productImg1 from "@/public/images/products/product-1.png";
 import productImg2 from "@/public/images/products/product-2.png";

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import Categories from "@/components/home/Categories";
-import TrendingProducts from "@/components/home/TrendingProducts";
-import Hero from "@/components/home/Hero";
-import Collections from "@/components/home/Collections";
+import Categories from "@/components/home-page/Categories";
+import TrendingProducts from "@/components/home-page/TrendingProducts";
+import Hero from "@/components/home-page/Hero";
+import Collections from "@/components/home-page/Collections";
 import CollectionBanner from "@/components/common/CollectionBanner";
 
 import category1 from "@/public/images/categories/Ellipse 6.png";
@@ -12,8 +12,8 @@ import category3 from "@/public/images/categories/Ellipse 8.png";
 import category4 from "@/public/images/categories/Ellipse 9.png";
 import category5 from "@/public/images/categories/Ellipse 10.png";
 import category6 from "@/public/images/categories/Group 8.png";
-import NewProducts from "@/components/home/NewProducts";
-import SocialMediaClicks from "@/components/home/SocialMediaClicks";
+import NewProducts from "@/components/home-page/NewProducts";
+import SocialMediaClicks from "@/components/home-page/SocialMediaClicks";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "@/lib/fonts";
 
@@ -59,7 +59,7 @@ export default function Home() {
         <h1
           className={cn(
             Montserrat.className,
-            "text-xl sm:text-3xl mb-12 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
+            "text-xl sm:text-3xl bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
           )}
         >
           Feature Collection

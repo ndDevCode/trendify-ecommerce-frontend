@@ -54,7 +54,7 @@ export default function Navbar() {
             <div className="relative flex flex-1 min-[400px]:items-center min-[400px]:justify-center lg:items-stretch lg:justify-between">
               <div className="flex flex-shrink-0 items-center">
                 <Image
-                  className="h-8 w-auto hidden min-[400px]:block"
+                  className="h-8 w-auto hidden min-[400px]:block rounded-full min-[400px]:ml-2"
                   src={Logo}
                   alt="Your Company"
                   width={32}
