@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function PageCount() {
+export default function ProductPerPage() {
   return (
     <Select>
       <SelectTrigger className="w-[180px] rounded-xl backdrop-blur-lg">

@@ -22,7 +22,8 @@ import productImg7 from "@/public/images/products/product-7.png";
 import productImg8 from "@/public/images/products/product-8.png";
 import productImg9 from "@/public/images/products/product-9.png";
 import productImg3 from "@/public/images/products/product-3.png";
-import { PageCount } from "@/components/product-page/PageCount";
+import ProductPerPage from "@/components/product-page/ProductPerPage";
+import SelectBox from "@/components/product-page/SelectBox";
 
 const categories = [
   { img: category1, title: "Spring & Summer 2024" },
@@ -117,7 +118,13 @@ const products = [
   },
 ];
 
-function ProductPage({ params }: { params: { category: string } }) {
+export default function ProductPage({
+  params,
+}: {
+  params: { category: string };
+}) {
+  const ratingItems = ["Ascending", "Descending"];
+
   return (
     <>
       {/* ------------------------ Header Title ------------------------- */}
@@ -138,22 +145,6 @@ function ProductPage({ params }: { params: { category: string } }) {
         {/* ---------------------- Filter Section ----------------------- */}
 
         <div className="lg:col-span-3 mr-2">
-          {/* -------------------- Sorting ------------------------------ */}
-          <h1
-            className={cn(
-              Montserrat.className,
-              "text-lg border-b-2 font-semibold p-4 mb-2 bg-gray-200 rounded-xl"
-            )}
-          >
-            Sort By
-          </h1>
-          <div>
-            <FilterHeading name="Rating" />
-          </div>
-          <div>
-            <FilterHeading name="Price" />
-          </div>
-
           {/* -------------------- Filters ------------------------------ */}
           <h1
             className={cn(
@@ -187,8 +178,34 @@ function ProductPage({ params }: { params: { category: string } }) {
         </div>
         <div className="lg:col-span-9">
           {/* ------------------ Product Count per page ----------------- */}
-          <div className="flex items-end justify-end">
-            <PageCount />
+          <div className="flex items-end justify-between mx-3">
+            {/* -------------------- Sorting ------------------------------ */}
+            <div className="flex gap-2">
+              <h1
+                className={cn(
+                  Montserrat.className,
+                  "text-lg font-semibold my-auto"
+                )}
+              >
+                Sort By :
+              </h1>
+              <div>
+                <SelectBox
+                  placeholder="Price"
+                  label="Price"
+                  items={ratingItems}
+                />
+              </div>
+              <div>
+                <SelectBox
+                  placeholder="Rating"
+                  label="Rating"
+                  items={ratingItems}
+                />
+              </div>
+            </div>
+
+            <ProductPerPage />
           </div>
           {/* ------------------------- Products ------------------------ */}
           <div className="my-8 grid grid-cols-1 md:grid-cols-2 min-[1080px]:grid-cols-3">
@@ -211,8 +228,6 @@ function ProductPage({ params }: { params: { category: string } }) {
   );
 }
 
-export default ProductPage;
-
 function FilterHeading({
   name,
   classNames,
@@ -222,7 +237,11 @@ function FilterHeading({
 }) {
   return (
     <h1
-      className={cn(Montserrat.className, "text-md border-b-2 font-semibold")}
+      className={cn(
+        Montserrat.className,
+        classNames,
+        "text-md border-b-2 font-semibold"
+      )}
     >
       {name}
     </h1>
