@@ -1,7 +1,7 @@
 "use client";
 import { useScroll, useTransform } from "framer-motion";
 import React from "react";
-import { GoogleGeminiEffect } from "@/components/ui/geminiEffect";
+import { GeminiEffect } from "@/components/ui/geminiEffect";
 
 import CollectionBannerImg from "@/public/images/collections/collection-banner.png";
 
@@ -23,7 +23,7 @@ export default function CollectionBanner() {
       className="h-[300vh] bg-white w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
       ref={ref}
     >
-      <GoogleGeminiEffect
+      <GeminiEffect
         pathLengths={[
           pathLengthFirst,
           pathLengthSecond,

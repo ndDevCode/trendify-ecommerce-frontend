@@ -25,7 +25,7 @@ export default function CollectionCard({ prop }: any) {
           className={cn(
             DancingScript.className,
             "text-md sm:text-4xl font-[1000] bg-clip-text text-transparent animate-shimmer",
-            "bg-[linear-gradient(110deg,#dbdcd7,45%,#b8235a,55%,#1c1a27)] bg-[length:200%_100%] transition-colors duration-[10000S]"
+            "bg-[linear-gradient(110deg,#dbdcd7,45%,#b8235a,55%,#1c1a27)] bg-[length:200%_100%] transition-colors duration-1000"
           )}
         >
           {prop.name}

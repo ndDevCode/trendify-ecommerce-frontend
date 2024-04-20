@@ -34,7 +34,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
-          <div className="relative flex h-16 items-center justify-between">
+          <div className="fixed z-50 backdrop-blur-xl top-0 w-full sm:max-w-7xl flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
               {/* Mobile menu button*/}
               <Disclosure.Button
@@ -51,10 +51,10 @@ export default function Navbar() {
                 )}
               </Disclosure.Button>
             </div>
-            <div className="flex flex-1 items-center justify-center lg:items-stretch lg:justify-between">
+            <div className="relative flex flex-1 min-[400px]:items-center min-[400px]:justify-center lg:items-stretch lg:justify-between">
               <div className="flex flex-shrink-0 items-center">
                 <Image
-                  className="h-8 w-auto"
+                  className="h-8 w-auto hidden min-[400px]:block"
                   src={Logo}
                   alt="Your Company"
                   width={32}
@@ -64,7 +64,7 @@ export default function Navbar() {
                 <Link
                   href={"/"}
                   className={classNames(
-                    "ms-2 text-2xl font-bold italic",
+                    "ms-2 text-2xl font-bold italic max-[400px]:ml-10",
                     DancingScript.className
                   )}
                 >

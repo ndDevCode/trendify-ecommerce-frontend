@@ -116,10 +116,10 @@ export default function NewProducts() {
       </h1>
       <Tab.Group>
         <Tab.List className={"flex space-x-1 p-1 w-fit"}>
-          {categories.map((category) => (
+          {categories.map((category, i) => (
             <Tab
               content={`${category}`}
-              key={category}
+              key={i}
               className={({ selected }) =>
                 classNames(
                   "px-2 py-1 me-2 sm:text-lg sm:font-medium font-thin leading-5 sm:w-[100px]",
@@ -147,11 +147,7 @@ export default function NewProducts() {
                 key={product.id}
                 className="flex items-center justify-center"
               >
-                <ProductCard
-                  key={product.id}
-                  prop={product}
-                  className="self-center"
-                />
+                <ProductCard prop={product} className="self-center" />
               </div>
             ))}
           </Tab.Panel>
@@ -166,11 +162,7 @@ export default function NewProducts() {
                 key={product.id}
                 className="flex items-center justify-center"
               >
-                <ProductCard
-                  key={product.id}
-                  prop={product}
-                  className="self-center"
-                />
+                <ProductCard prop={product} className="self-center" />
               </div>
             ))}
           </Tab.Panel>
@@ -185,7 +177,7 @@ export default function NewProducts() {
                 key={product.id}
                 className="flex items-center justify-center"
               >
-                <ProductCard key={product.id} prop={product} />
+                <ProductCard prop={product} />
               </div>
             ))}
           </Tab.Panel>

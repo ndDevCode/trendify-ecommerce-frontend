@@ -9,7 +9,7 @@ const transition = {
   ease: "linear",
 };
 
-export const GoogleGeminiEffect = ({
+export const GeminiEffect = ({
   pathLengths,
   title,
   description,

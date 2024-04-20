@@ -14,6 +14,8 @@ import category5 from "@/public/images/categories/Ellipse 10.png";
 import category6 from "@/public/images/categories/Group 8.png";
 import NewProducts from "@/components/home/NewProducts";
 import SocialMediaClicks from "@/components/home/SocialMediaClicks";
+import { cn } from "@/lib/utils";
+import { Montserrat } from "@/lib/fonts";
 
 const categories = [
   { img: category1, title: "Spring & Summer 2024" },
@@ -54,6 +56,14 @@ export default function Home() {
 
       {/* ------------------- Collection Banner ------------- */}
       <div className="mb-16 px-14 font-bold">
+        <h1
+          className={cn(
+            Montserrat.className,
+            "text-xl sm:text-3xl mb-12 bg-gradient-to-t from-black to-gray-700 bg-clip-text text-transparent"
+          )}
+        >
+          Feature Collection
+        </h1>
         <CollectionBanner />
       </div>
 
