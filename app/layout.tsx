@@ -27,7 +27,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <main className="mx-auto sm:max-w-7xl px-1 sm:px-6 lg:px-8">
+        <main className="mx-auto sm:max-w-[1350px] px-1 sm:px-6 lg:px-8">
           <Navbar />
           {children}
           <Footer />

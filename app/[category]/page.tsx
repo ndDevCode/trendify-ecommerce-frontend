@@ -24,6 +24,9 @@ import productImg9 from "@/public/images/products/product-9.png";
 import productImg3 from "@/public/images/products/product-3.png";
 import ProductPerPage from "@/components/product-page/ProductPerPage";
 import SelectBox from "@/components/product-page/SelectBox";
+import { RadioList } from "@/components/product-page/RadioList";
+import { PriceSlider } from "@/components/product-page/PriceSlider";
+import { DiscountSlider } from "@/components/product-page/DiscountSlider";
 
 const categories = [
   { img: category1, title: "Spring & Summer 2024" },
@@ -124,6 +127,10 @@ export default function ProductPage({
   params: { category: string };
 }) {
   const ratingItems = ["Ascending", "Descending"];
+  const ratings = ["1", "2", "3", "4", "5"];
+  const subCategories = ["T-shirt", "Shirt", "Dresses"];
+  const sizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+  const types = ["New", "Sale", "Trending", "Featured"];
 
   return (
     <>
@@ -134,18 +141,19 @@ export default function ProductPage({
           "font-extrabold text-5xl mt-32 mb-8"
         )}
       >
-        {params.category} &apos;s Clothing
+        Clothing Menu
       </h1>
 
       {/* ----------- Sub Categories related to Main Category ----------- */}
-      <Categories data={categories} />
+      <div className="font-bold">
+        <Categories data={categories} />
+      </div>
 
       {/* ------------------------ Product Section ---------------------- */}
       <div className="grid lg:grid-cols-12 my-16">
         {/* ---------------------- Filter Section ----------------------- */}
 
         <div className="lg:col-span-3 mr-2">
-          {/* -------------------- Filters ------------------------------ */}
           <h1
             className={cn(
               Montserrat.className,
@@ -154,37 +162,54 @@ export default function ProductPage({
           >
             Filter By
           </h1>
-          <div>
-            <FilterHeading name="Category" />
-          </div>
-          <div>
-            <FilterHeading name="Product Status" />
-          </div>
-          <div>
-            <FilterHeading name="Rating" />
-          </div>
-          <div>
-            <FilterHeading name="Discount" />
-          </div>
-          <div>
-            <FilterHeading name="Price" />
-          </div>
-          <div>
-            <FilterHeading name="Size" />
-          </div>
-          <div>
-            <FilterHeading name="Color" />
+          <div className="ml-3">
+            <div>
+              <FilterHeading name="Category" />
+              <SelectBox
+                placeholder="Category"
+                label="Category"
+                items={subCategories}
+              />
+            </div>
+            <div>
+              <FilterHeading name="Product Status" />
+              <SelectBox placeholder="Status" label="Status" items={types} />
+            </div>
+            <div>
+              <FilterHeading name="Rating" />
+              <RadioList
+                defaultValue=""
+                items={ratings}
+                className="ml-3 flex items-center"
+              />
+            </div>
+            <div>
+              <FilterHeading name="Discount" />
+              <DiscountSlider />
+            </div>
+            <div>
+              <FilterHeading name="Price" />
+              <PriceSlider />
+            </div>
+            <div>
+              <FilterHeading name="Size" />
+              <SelectBox placeholder="Size" label="Size" items={sizes} />
+            </div>
+            <div>
+              <FilterHeading name="Color" />
+            </div>
           </div>
         </div>
+        {/* ----------------------- Product List ------------------------ */}
         <div className="lg:col-span-9">
           {/* ------------------ Product Count per page ----------------- */}
-          <div className="flex items-end justify-between mx-3">
-            {/* -------------------- Sorting ------------------------------ */}
-            <div className="flex gap-2">
+          <div className="flex flex-col min-[680px]:flex-row sm:justify-between mx-3">
+            {/* -------------------- Sorting ---------------------------- */}
+            <div className="flex flex-col min-[680px]:flex-row gap-2">
               <h1
                 className={cn(
                   Montserrat.className,
-                  "text-lg font-semibold my-auto"
+                  "text-lg font-semibold mt-3 min-[680px]:my-auto "
                 )}
               >
                 Sort By :
@@ -205,7 +230,7 @@ export default function ProductPage({
               </div>
             </div>
 
-            <ProductPerPage />
+            <ProductPerPage classNames="mt-3 min-[680px]:mt-0" />
           </div>
           {/* ------------------------- Products ------------------------ */}
           <div className="my-8 grid grid-cols-1 md:grid-cols-2 min-[1080px]:grid-cols-3">
@@ -240,7 +265,7 @@ function FilterHeading({
       className={cn(
         Montserrat.className,
         classNames,
-        "text-md border-b-2 font-semibold"
+        "text-md my-2 font-semibold"
       )}
     >
       {name}

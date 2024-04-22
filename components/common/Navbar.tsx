@@ -34,7 +34,7 @@ export default function Navbar() {
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
-          <div className="fixed z-50 backdrop-blur-xl top-0 w-full sm:max-w-7xl flex h-16 items-center justify-between">
+          <div className="fixed z-50 backdrop-blur-xl top-0 -left-1 min-[1350px]:left-auto w-full sm:max-w-7xl flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center lg:hidden">
               {/* Mobile menu button*/}
               <Disclosure.Button
@@ -108,7 +108,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="relative inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
                 type="button"
                 className="relative rounded-full bg-blue-950 p-1 text-gray-400 
