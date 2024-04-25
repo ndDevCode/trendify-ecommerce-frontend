@@ -14,15 +14,15 @@ import { DancingScript } from "@/lib/fonts";
 import Logo from "@/public/logo.png";
 
 const navigation = [
-  { name: "WOMEN", href: "#", current: true },
-  { name: "MEN", href: "#", current: false },
-  { name: "KIDS", href: "#", current: false },
-  { name: "COLLECTION", href: "#", current: false },
+  { name: "WOMEN", href: "/women", current: true },
+  { name: "MEN", href: "/men", current: false },
+  { name: "KIDS", href: "/kids", current: false },
+  { name: "COLLECTION", href: "/collection", current: false },
 ];
 
 const authNavigation = [
-  { name: "LOGIN", href: "#", current: false },
-  { name: "REGISTER", href: "#", current: false },
+  { name: "LOGIN", href: "/sign-in", current: false },
+  { name: "REGISTER", href: "/sign-up", current: false },
 ];
 
 function classNames(...classes: string[]) {

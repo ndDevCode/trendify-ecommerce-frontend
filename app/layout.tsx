@@ -11,7 +11,7 @@ const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Trendify Clothing Store",
-  description: "Trending brings latest fashion to the market",
+  description: "Trendify brings latest fashion to the market",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <main className="mx-auto sm:max-w-[1350px] px-1 sm:px-6 lg:px-8">
+        <main className="mx-auto sm:max-w-[1344px] px-1 sm:px-6 lg:px-8">
           <Navbar />
           {children}
           <Footer />

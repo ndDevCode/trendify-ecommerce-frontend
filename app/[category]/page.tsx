@@ -3,7 +3,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Montserrat } from "@/lib/fonts";
 
-import ProductPagination from "@/components/product-page/ProductPagination";
+import ProductPagination from "@/components/product-list-page/ProductPagination";
 import ProductCard from "@/components/common/ProductCard";
 
 import category1 from "@/public/images/categories/Ellipse 6.png";
@@ -22,11 +22,12 @@ import productImg7 from "@/public/images/products/product-7.png";
 import productImg8 from "@/public/images/products/product-8.png";
 import productImg9 from "@/public/images/products/product-9.png";
 import productImg3 from "@/public/images/products/product-3.png";
-import ProductPerPage from "@/components/product-page/ProductPerPage";
-import SelectBox from "@/components/product-page/SelectBox";
-import { RadioList } from "@/components/product-page/RadioList";
-import { PriceSlider } from "@/components/product-page/PriceSlider";
-import { DiscountSlider } from "@/components/product-page/DiscountSlider";
+import ProductPerPage from "@/components/product-list-page/ProductPerPage";
+import SelectBox from "@/components/product-list-page/SelectBox";
+import { RadioList } from "@/components/product-list-page/RadioList";
+import { PriceSlider } from "@/components/product-list-page/PriceSlider";
+import { DiscountSlider } from "@/components/product-list-page/DiscountSlider";
+import FilterColors from "@/components/product-list-page/FilterColors";
 
 const categories = [
   { img: category1, title: "Spring & Summer 2024" },
@@ -131,6 +132,15 @@ export default function ProductPage({
   const subCategories = ["T-shirt", "Shirt", "Dresses"];
   const sizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
   const types = ["New", "Sale", "Trending", "Featured"];
+  const colorCodes = [
+    "#FFEFAA",
+    "#E5E5E5",
+    "#E5F5E5",
+    "#E5E5F5",
+    "#00FF00",
+    "#FF0000",
+    "#0000FF",
+  ];
 
   return (
     <>
@@ -197,6 +207,7 @@ export default function ProductPage({
             </div>
             <div>
               <FilterHeading name="Color" />
+              <FilterColors colorCodes={colorCodes} />
             </div>
           </div>
         </div>
