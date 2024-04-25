@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Montserrat } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { Inter } from "@/lib/fonts";
 
 export default function Categories({ data }: any) {
   return (
@@ -27,7 +28,12 @@ export default function Categories({ data }: any) {
               width={300}
               height={300}
             ></Image>
-            <p className="text-center text-sm sm:text-lg font-thin text-wrap">
+            <p
+              className={cn(
+                Inter.className,
+                "text-center text-sm sm:text-lg font-normal text-wrap"
+              )}
+            >
               {category.title}
             </p>
           </div>

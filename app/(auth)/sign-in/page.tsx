@@ -15,7 +15,7 @@ type Inputs = {
   email: string;
   password: string;
 };
-export default function Example() {
+export default function SignIn() {
   const {
     register,
     handleSubmit,
