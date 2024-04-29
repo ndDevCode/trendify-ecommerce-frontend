@@ -3,12 +3,22 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import icon from "@/app/icon.png";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
+import { ToastContainer, Zoom, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
+import Swal from "sweetalert2";
+
 import { cn } from "@/lib/utils";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "@/lib/validationRegex";
 import { Inter } from "@/lib/fonts";
+
+import { registerCustomer } from "@/lib/services/authService";
+import { Customer } from "@/types/userTypes";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 type Inputs = {
   firstname: string;
@@ -19,6 +29,8 @@ type Inputs = {
 };
 
 export default function SignUp() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -27,7 +39,53 @@ export default function SignUp() {
     criteriaMode: "all",
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = async (formData) => {
+    if (formData.newPassword !== formData.confirmPassword) {
+      toast.error("Passwords do not match", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Zoom,
+      });
+      return;
+    }
+
+    const customer: Customer = {
+      id: null,
+      firstName: formData.firstname,
+      lastName: formData.lastname,
+      email: formData.email,
+      password: formData.newPassword,
+      role: ["CUSTOMER"],
+      isActive: true,
+    };
+
+    const { data } = await registerCustomer(customer);
+    if (data.isSuccess) {
+      Swal.fire({
+        title: "Success!",
+        text: data.message + "\nPlease login.",
+        icon: "success",
+        confirmButtonText: "Cool",
+        didClose: () => {
+          signIn();
+        },
+      });
+      return;
+    }
+
+    Swal.fire({
+      title: "Error Occured!",
+      text: data.message,
+      icon: "error",
+      confirmButtonText: "Hmm",
+    });
+  };
 
   return (
     <>
@@ -38,7 +96,7 @@ export default function SignUp() {
             src={icon}
             alt="Trendify Ecommerce"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 trackiauth-utilng-tight text-gray-900">
             Sign up to your account
           </h2>
         </div>
@@ -168,6 +226,7 @@ export default function SignUp() {
                   id="newPassword"
                   name="newPassword"
                   type="password"
+                  autoComplete="password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 <ErrorMessage
@@ -213,6 +272,7 @@ export default function SignUp() {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
+                  autoComplete="password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 <ErrorMessage
@@ -258,6 +318,8 @@ export default function SignUp() {
           </p>
         </div>
       </div>
+
+      <ToastContainer />
     </>
   );
 }

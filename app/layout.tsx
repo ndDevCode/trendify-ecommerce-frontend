@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
+import AuthProvider from "./AuthProvider";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,9 +29,11 @@ export default function RootLayout({
         )}
       >
         <main className="mx-auto sm:max-w-[1344px] px-1 sm:px-6 lg:px-8">
-          <Navbar />
-          {children}
-          <Footer />
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </AuthProvider>
         </main>
       </body>
     </html>

@@ -6,25 +6,44 @@ import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { cn } from "@/lib/utils";
+import { signIn, useSession } from "next-auth/react";
 
 import { Inter } from "@/lib/fonts";
 import icon from "@/app/icon.png";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "@/lib/validationRegex";
+import { loginUser } from "@/lib/services/authService";
 
-type Inputs = {
+type credentials = {
   email: string;
   password: string;
 };
+
 export default function SignIn() {
+  const session = useSession();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({
+  } = useForm<credentials>({
     criteriaMode: "all",
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<credentials> = async (formData) => {
+    const {
+      data: { data },
+    } = await loginUser(formData);
+
+    const response = await signIn("credentials", {
+      username: formData.email,
+      password: formData.password,
+      redirect: true,
+      callbackUrl: "/",
+    });
+    console.log(data);
+    console.log(response);
+    console.log(session);
+  };
 
   return (
     <>
