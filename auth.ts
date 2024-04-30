@@ -11,13 +11,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: {},
       },
       authorize: async (credentials) => {
-        let user: {
-          id: string;
-          name: string;
-          email: string;
-          role: string;
-        } | null = null;
-
         const userCredentials: UserLogin = {
           email: credentials.username,
           password: credentials.password,
@@ -28,10 +21,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         } = await loginUser(userCredentials);
 
         if (data.user) {
-          console.log(data);
           return {
-            name: data.user.firstName + " " + data.user.lastName,
+            id: data.user.id,
+            firstName: data.user.firstName,
+            lastName: data.user.lastName,
             email: data.user.email,
+            role: data.user.role,
+            isActive: data.user.isActive,
+            accessToken: data.accessToken,
+            refreshToken: data.refreshToken,
+            tokenType: data.tokenType,
           };
         }
 
@@ -39,6 +38,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token, user }) {
+      session.accessToken = token.user.accessToken;
+      session.user = token.user;
+
+      return session;
+    },
+    async jwt({ token, user, account }) {
+      if (account) {
+        token.accessToken = account.access_token;
+        token.user = user;
+      }
+      return token;
+    },
+  },
   pages: {
     signIn: "/sign-in",
   },

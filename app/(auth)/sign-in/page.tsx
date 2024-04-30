@@ -7,11 +7,13 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { cn } from "@/lib/utils";
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 import { Inter } from "@/lib/fonts";
 import icon from "@/app/icon.png";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "@/lib/validationRegex";
-import { loginUser } from "@/lib/services/authService";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 type credentials = {
   email: string;
@@ -19,6 +21,7 @@ type credentials = {
 };
 
 export default function SignIn() {
+  const router = useRouter();
   const session = useSession();
 
   const {
@@ -30,19 +33,23 @@ export default function SignIn() {
   });
 
   const onSubmit: SubmitHandler<credentials> = async (formData) => {
-    const {
-      data: { data },
-    } = await loginUser(formData);
-
     const response = await signIn("credentials", {
       username: formData.email,
       password: formData.password,
-      redirect: true,
+      redirect: false,
       callbackUrl: "/",
     });
-    console.log(data);
-    console.log(response);
-    console.log(session);
+
+    if (response?.error) {
+      Swal.fire({
+        title: "Login Failed",
+        text: "Please check your credentials and try again!",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    } else {
+      router.push("/");
+    }
   };
 
   return (

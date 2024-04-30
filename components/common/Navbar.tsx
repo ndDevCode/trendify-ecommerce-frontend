@@ -113,7 +113,8 @@ export default function Navbar() {
                     </Link>
                   ))}
 
-                  {session.status === "unauthenticated" &&
+                  {(session.status === "unauthenticated" ||
+                    session.status === "loading") &&
                     authNavigation.map((item) => (
                       <Link
                         key={item.name}
@@ -249,7 +250,8 @@ export default function Navbar() {
                 </Disclosure.Button>
               ))}
 
-              {session.status === "unauthenticated" &&
+              {(session.status === "unauthenticated" ||
+                session.status === "loading") &&
                 authNavigation.map((item) => (
                   <Disclosure.Button
                     key={item.name}
